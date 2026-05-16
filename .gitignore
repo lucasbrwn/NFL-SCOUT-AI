@@ -10,5 +10,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Eval results
-eval/results/
+# Debug logs
+flask_err.txt
+flask_out.txt

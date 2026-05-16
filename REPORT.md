@@ -82,7 +82,7 @@ Tracing a user submitting "Zachariah Branch" and "WR" through the Player Grade f
 
 All code in this project was written with Claude Code as the primary coding assistant.
 
-**Three specific failures and recoveries:**
+**Two specific failures and recoveries:**
 
 1. **`_name_matches` false positives.** Claude's initial implementation matched on the first token of the player name rather than the last name. This caused "Devon Achane" to match "Devon Smith" (a different player) and pass the guard incorrectly. I caught it while reviewing TC02's retrieved document in a debug run, identified the bug in `grader.py:40-46`, and rewrote the function to split on last name only with a minimum length check.
 

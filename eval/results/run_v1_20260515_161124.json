@@ -1,0 +1,302 @@
+{
+  "version": "V1",
+  "timestamp": "20260515_161124",
+  "accuracy": 0.75,
+  "passed": 9,
+  "total": 12,
+  "results": [
+    {
+      "id": "TC01",
+      "feature": "grade",
+      "description": "2026 WR \u00e2\u20ac\u201d elite speed (4.35s) and elite bench (20 reps) against WR benchmarks",
+      "passed": false,
+      "reason": "Grade 'B' not within 1 step of ['A-', 'A']",
+      "result": {
+        "player_name": "Zachariah Branch",
+        "position": "WR",
+        "grade": "B",
+        "score": 80,
+        "strengths": [
+          "Speed",
+          "Agility"
+        ],
+        "weaknesses": [
+          "Bench press strength"
+        ],
+        "justification": "Zachariah Branch's performance in the 40-yard dash is expected to be competitive, likely around the elite threshold of 4.3s, showcasing his speed. However, without specific data on his bench press and vertical jump, it's difficult to fully assess his overall athleticism. His agility metrics, such as the 3-cone and shuttle, are also crucial for a WR, but those stats are not available for evaluation.",
+        "confidence": "low",
+        "data_warning": "No player data retrieved for specific combine metrics."
+      }
+    },
+    {
+      "id": "TC02",
+      "feature": "grade",
+      "description": "2023 RB \u00e2\u20ac\u201d elite speed (4.32s), well below average RB time of 4.50s",
+      "passed": true,
+      "reason": "Grade 'A' in range ['A', 'A+'], position 'RB'",
+      "result": {
+        "player_name": "Devon Achane",
+        "position": "RB",
+        "grade": "A",
+        "score": 90,
+        "strengths": [
+          "Speed",
+          "Agility"
+        ],
+        "weaknesses": [
+          "Bench Press"
+        ],
+        "justification": "Devon Achane's performance showcases exceptional speed with a 40-yard dash time that likely falls below the elite threshold of 4.38s, indicating top-tier acceleration for a running back. His agility metrics, such as the 3-cone and shuttle times, are expected to be impressive, enhancing his ability to navigate through defenders. However, his bench press performance may not meet the average benchmark of 22.0 reps, which could be a concern for durability and strength in short-yardage situations.",
+        "confidence": "medium",
+        "data_warning": "No player data retrieved."
+      }
+    },
+    {
+      "id": "TC03",
+      "feature": "grade",
+      "description": "2020 QB \u00e2\u20ac\u201d very slow 40 (5.01s vs avg 4.72s), below-average vertical; tests low-end grading",
+      "passed": true,
+      "reason": "Grade 'C' in range ['D', 'C-', 'C'], position 'QB'",
+      "result": {
+        "player_name": "Jake Fromm",
+        "position": "QB",
+        "grade": "C",
+        "score": 68,
+        "strengths": [
+          "Solid bench press performance",
+          "Decent 3-cone drill time"
+        ],
+        "weaknesses": [
+          "Slow 40-yard dash",
+          "Below-average vertical jump"
+        ],
+        "justification": "Jake Fromm's 40-yard dash time is not available, but if it were below the average of 4.72s, it would significantly impact his grade. His bench press performance, while solid, is below the elite threshold of 25.0 reps, and his vertical jump was likely below the average of 32.5\", which are both critical for a quarterback's athleticism. Overall, his combine performance reflects average athleticism for the position.",
+        "confidence": "medium",
+        "data_warning": "Missing specific combine statistics for Jake Fromm."
+      }
+    },
+    {
+      "id": "TC04",
+      "feature": "grade",
+      "description": "2020 OL \u00e2\u20ac\u201d 4.85s 40 is faster than OL elite threshold (4.95s); elite vertical (36.5\"); tests high-end OL grading",
+      "passed": true,
+      "reason": "Grade 'A' in range ['A', 'A+'], position 'OL'",
+      "result": {
+        "player_name": "Tristan Wirfs",
+        "position": "OL",
+        "grade": "A",
+        "score": 90,
+        "strengths": [
+          "40-yard dash speed",
+          "Bench press performance"
+        ],
+        "weaknesses": [
+          "Vertical jump"
+        ],
+        "justification": "Tristan Wirfs showcased impressive athleticism with a 40-yard dash time that likely falls below the elite threshold of 4.95s, indicating exceptional speed for an offensive lineman. His bench press performance is expected to be above the average of 29.5 reps, suggesting strong upper body strength. However, without specific vertical jump data, it's difficult to assess his explosiveness in that regard.",
+        "confidence": "medium",
+        "data_warning": "No player data retrieved \u2014 V1 baseline relies on LLM knowledge only."
+      }
+    },
+    {
+      "id": "TC05",
+      "feature": "grade",
+      "description": "Player not in dataset \u00e2\u20ac\u201d must set data_warning and must NOT hallucinate stats",
+      "passed": true,
+      "reason": "data_warning correctly set: 'No player data retrieved \u2014 unable to evaluate combine performance.'",
+      "result": {
+        "player_name": "Chad Playersworth",
+        "position": "WR",
+        "grade": "F",
+        "score": 25,
+        "strengths": [],
+        "weaknesses": [
+          "No performance data available"
+        ],
+        "justification": "No combine performance data was retrieved for Chad Playersworth, making it impossible to evaluate his athleticism against the positional benchmarks for wide receivers. Without any statistics, we cannot assess his strengths or weaknesses.",
+        "confidence": "low",
+        "data_warning": "No player data retrieved \u2014 unable to evaluate combine performance."
+      }
+    },
+    {
+      "id": "TC06",
+      "feature": "compare",
+      "description": "Cross-year same-position: 2024 WR Worthy (4.21s, 41\" vert) vs 2025 WR Golden (4.29s) \u00e2\u20ac\u201d Worthy wins on speed and complete data",
+      "passed": false,
+      "reason": "Verdict 'Push' != expected 'Xavier Worthy'",
+      "result": {
+        "player1": {
+          "name": "Xavier Worthy",
+          "position": "WR",
+          "grade": "F",
+          "score": 0,
+          "strengths": [],
+          "weaknesses": [
+            "No combine data available"
+          ]
+        },
+        "player2": {
+          "name": "Matthew Golden",
+          "position": "WR",
+          "grade": "F",
+          "score": 0,
+          "strengths": [],
+          "weaknesses": [
+            "No combine data available"
+          ]
+        },
+        "verdict": "Push",
+        "verdict_reason": "Both players have no available combine data, making it impossible to evaluate their performances against the benchmarks. Therefore, neither player can be deemed better than the other.",
+        "head_to_head": [],
+        "same_position": true,
+        "data_warning": "No data retrieved for both Xavier Worthy and Matthew Golden."
+      }
+    },
+    {
+      "id": "TC07",
+      "feature": "compare",
+      "description": "Cross-position 2026: WR Branch vs DE Bailey \u00e2\u20ac\u201d must grade each against their own positional benchmarks, not compare across positions",
+      "passed": false,
+      "reason": "Player2 position: got 'WR', expected 'DE'",
+      "result": {
+        "player1": {
+          "name": "Zachariah Branch",
+          "position": "WR",
+          "grade": "F",
+          "score": 0,
+          "strengths": [],
+          "weaknesses": [
+            "No combine data available"
+          ]
+        },
+        "player2": {
+          "name": "David Bailey",
+          "position": "WR",
+          "grade": "F",
+          "score": 0,
+          "strengths": [],
+          "weaknesses": [
+            "No combine data available"
+          ]
+        },
+        "verdict": "Push",
+        "verdict_reason": "Both players have no combine data available, making it impossible to evaluate their performances against the benchmarks.",
+        "head_to_head": [],
+        "same_position": true,
+        "data_warning": "No data retrieved for both Zachariah Branch and David Bailey."
+      }
+    },
+    {
+      "id": "TC08",
+      "feature": "compare",
+      "description": "Cross-year same-position: 2021 WR Schwartz (4.27s) vs 2022 WR Thornton (4.28s, 36.5\" vert, 130\" broad) \u00e2\u20ac\u201d Thornton edges on overall athleticism",
+      "passed": true,
+      "reason": "Verdict 'Push' accepted, positions p1='WR' p2='WR'",
+      "result": {
+        "player1": {
+          "name": "Anthony Schwartz",
+          "position": "WR",
+          "grade": "F",
+          "score": 0,
+          "strengths": [],
+          "weaknesses": [
+            "No data available to evaluate performance"
+          ]
+        },
+        "player2": {
+          "name": "Tyquan Thornton",
+          "position": "WR",
+          "grade": "F",
+          "score": 0,
+          "strengths": [],
+          "weaknesses": [
+            "No data available to evaluate performance"
+          ]
+        },
+        "verdict": "Push",
+        "verdict_reason": "Both players have no available combine data, making it impossible to evaluate their performances against benchmarks. Without any statistics, a comparison cannot be made.",
+        "head_to_head": [],
+        "same_position": true,
+        "data_warning": "No data retrieved for both Anthony Schwartz and Tyquan Thornton."
+      }
+    },
+    {
+      "id": "TC09",
+      "feature": "create",
+      "description": "Elite WR speed profile \u00e2\u20ac\u201d 4.35s 40, 42\" vertical; should grade A or better",
+      "passed": true,
+      "reason": "Grade 'A-' in range ['A', 'A+']",
+      "result": {
+        "position": "WR",
+        "grade": "A-",
+        "score": 88,
+        "strengths": [
+          "40-yard dash speed",
+          "vertical jump"
+        ],
+        "weaknesses": [
+          "bench reps"
+        ],
+        "comparable_players": [],
+        "justification": "The player's 40-yard dash time of 4.35s is significantly faster than the WR benchmark of 4.47s, showcasing elite speed. Additionally, the vertical jump of 42.0\" exceeds the benchmark of 38.0\", indicating exceptional explosiveness. However, the bench press performance of 12 reps is slightly below the average of 12.5 reps, which could be a concern for strength.",
+        "draft_projection": "2nd Round"
+      }
+    },
+    {
+      "id": "TC10",
+      "feature": "create",
+      "description": "Strong OL profile \u00e2\u20ac\u201d elite bench (35 reps vs avg 29.5), reasonable 40; must not be penalized for OL-normal 40 time",
+      "passed": true,
+      "reason": "Grade 'B' in range ['B', 'B+', 'A-']",
+      "result": {
+        "position": "OL",
+        "grade": "B",
+        "score": 82,
+        "strengths": [
+          "Bench reps",
+          "Weight"
+        ],
+        "weaknesses": [
+          "40-yard dash",
+          "Vertical jump"
+        ],
+        "comparable_players": [],
+        "justification": "The user's bench reps of 35 exceed the positional average of 29.5, showcasing excellent strength. However, the 40-yard dash time of 5.4 seconds is significantly slower than the average of 5.12 seconds, which raises concerns about speed and agility. The vertical jump of 28.0 inches is also below the average of 29.5 inches, indicating potential limitations in explosiveness.",
+        "draft_projection": "Late Round"
+      }
+    },
+    {
+      "id": "TC11",
+      "feature": "create",
+      "description": "Average QB combine \u00e2\u20ac\u201d 4.9s 40, 18 bench; must be graded against QB benchmarks, not WR or RB standards",
+      "passed": true,
+      "reason": "Grade 'B' in range ['C', 'C+', 'B-']",
+      "result": {
+        "position": "QB",
+        "grade": "B",
+        "score": 80,
+        "strengths": [
+          "Vertical jump",
+          "Bench reps"
+        ],
+        "weaknesses": [
+          "40-yard dash"
+        ],
+        "comparable_players": [],
+        "justification": "The user's vertical jump of 33.0\" exceeds the positional benchmark of 32.5\", showcasing good explosiveness. However, the 40-yard dash time of 4.9s is below the average of 4.72s, indicating a lack of speed. Overall, the performance is solid but not elite, particularly due to the slower sprint time.",
+        "draft_projection": "Late Day 3"
+      }
+    },
+    {
+      "id": "TC12",
+      "feature": "create",
+      "description": "All stats blank \u00e2\u20ac\u201d must return data_warning without calling OpenAI",
+      "passed": true,
+      "reason": "data_warning correctly set: 'Please provide at least one combine stat.'",
+      "result": {
+        "data_warning": "Please provide at least one combine stat.",
+        "grade": null
+      }
+    }
+  ]
+}

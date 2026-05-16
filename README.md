@@ -6,7 +6,7 @@ combine numbers to see how you'd stack up against real draft prospects.
 
 ## Requirements
 
-- **Python 3.11.9** (exact version — install via [python.org](https://www.python.org/downloads/release/python-3119/) or `pyenv install 3.11.9`)
+- **Python 3.11+** (install via [python.org](https://www.python.org/downloads/) or `pyenv`)
 - An OpenAI API key
 
 ## Setup
@@ -17,16 +17,10 @@ combine numbers to see how you'd stack up against real draft prospects.
    cd NFL-SCOUT-AI
    ```
 
-2. Create and activate a virtual environment using Python 3.11.9:
+2. Create and activate a virtual environment:
    ```bash
-   python3.11 -m venv venv
+   python3 -m venv venv
    source venv/bin/activate
-   ```
-
-   Verify the version before continuing:
-   ```bash
-   python --version
-   # Expected: Python 3.11.9
    ```
 
 3. Install dependencies:
@@ -59,3 +53,5 @@ python eval/eval_v3.py
 ```
 
 This runs 12 labeled test cases and prints accuracy. Costs ~$0.05–$0.10 in OpenAI API credits.
+
+Historical V1 and V2 eval results are in `eval/results/` alongside the V3 result for comparison.

@@ -160,7 +160,7 @@ def run_eval():
 
     os.makedirs(Path(__file__).parent / "results", exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    out_path = Path(__file__).parent / "results" / f"run_{timestamp}.json"
+    out_path = Path(__file__).parent / "results" / f"run_v3_{timestamp}.json"
     with open(out_path, "w") as f:
         json.dump({
             "version": "V3",
