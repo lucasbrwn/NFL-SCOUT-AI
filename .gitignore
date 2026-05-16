@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Vector index (rebuilt locally from CSVs)
+rag/chroma_db/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Eval results
+eval/results/
