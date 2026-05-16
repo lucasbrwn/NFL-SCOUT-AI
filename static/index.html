@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NFL Scouting AI</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>NFL Scouting AI</h1>
+      <p class="header-sub">AI-powered combine analysis &amp; scouting evaluation for NFL draft prospects</p>
+    </div>
+  </header>
+
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="grade" onclick="switchTab('grade')">Player Grade</button>
+    <button class="tab-btn" data-tab="compare" onclick="switchTab('compare')">Compare Players</button>
+    <button class="tab-btn" data-tab="create" onclick="switchTab('create')">Create-A-Player</button>
+  </nav>
+
+  <main>
+
+    <!-- Tab 1: Player Grade -->
+    <div class="tab-pane" id="pane-grade">
+      <form id="form-grade" onsubmit="submitGrade(event)">
+        <div class="form-group">
+          <label for="grade-name">Player Name</label>
+          <input type="text" id="grade-name" placeholder="e.g. Zachariah Branch" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="grade-position">Position <span class="optional">(optional — auto-detected if blank)</span></label>
+          <select id="grade-position">
+            <option value="">Auto-detect</option>
+            <option value="QB">QB — Quarterback</option>
+            <option value="RB">RB — Running Back</option>
+            <option value="WR">WR — Wide Receiver</option>
+            <option value="TE">TE — Tight End</option>
+            <option value="OL">OL — Offensive Lineman</option>
+            <option value="DE">DE — Defensive End</option>
+            <option value="DT">DT — Defensive Tackle</option>
+            <option value="LB">LB — Linebacker</option>
+            <option value="CB">CB — Cornerback</option>
+            <option value="S">S — Safety</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" data-original-text="Grade This Player">Grade This Player</button>
+      </form>
+      <div id="result-grade" class="result-container" style="display:none"></div>
+    </div>
+
+    <!-- Tab 2: Compare Players -->
+    <div class="tab-pane" id="pane-compare" style="display:none">
+      <form id="form-compare" onsubmit="submitCompare(event)">
+        <div class="compare-form-cols">
+          <div class="compare-form-col">
+            <h3 class="player-label">Player 1</h3>
+            <div class="form-group">
+              <label for="compare-name1">Name</label>
+              <input type="text" id="compare-name1" placeholder="e.g. Zachariah Branch" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="compare-pos1">Position <span class="optional">(optional)</span></label>
+              <select id="compare-pos1">
+                <option value="">Auto-detect</option>
+                <option value="QB">QB — Quarterback</option>
+                <option value="RB">RB — Running Back</option>
+                <option value="WR">WR — Wide Receiver</option>
+                <option value="TE">TE — Tight End</option>
+                <option value="OL">OL — Offensive Lineman</option>
+                <option value="DE">DE — Defensive End</option>
+                <option value="DT">DT — Defensive Tackle</option>
+                <option value="LB">LB — Linebacker</option>
+                <option value="CB">CB — Cornerback</option>
+                <option value="S">S — Safety</option>
+              </select>
+            </div>
+          </div>
+          <div class="compare-vs-divider">VS</div>
+          <div class="compare-form-col">
+            <h3 class="player-label">Player 2</h3>
+            <div class="form-group">
+              <label for="compare-name2">Name</label>
+              <input type="text" id="compare-name2" placeholder="e.g. Malik Benson" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="compare-pos2">Position <span class="optional">(optional)</span></label>
+              <select id="compare-pos2">
+                <option value="">Auto-detect</option>
+                <option value="QB">QB — Quarterback</option>
+                <option value="RB">RB — Running Back</option>
+                <option value="WR">WR — Wide Receiver</option>
+                <option value="TE">TE — Tight End</option>
+                <option value="OL">OL — Offensive Lineman</option>
+                <option value="DE">DE — Defensive End</option>
+                <option value="DT">DT — Defensive Tackle</option>
+                <option value="LB">LB — Linebacker</option>
+                <option value="CB">CB — Cornerback</option>
+                <option value="S">S — Safety</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" data-original-text="Compare Players">Compare Players</button>
+      </form>
+      <div id="result-compare" class="result-container" style="display:none"></div>
+    </div>
+
+    <!-- Tab 3: Create-A-Player -->
+    <div class="tab-pane" id="pane-create" style="display:none">
+      <form id="form-create" onsubmit="submitCreate(event)">
+        <div class="form-group">
+          <label for="create-position">Position <span class="required">*</span></label>
+          <select id="create-position">
+            <option value="" disabled selected>Select a position</option>
+            <option value="QB">QB — Quarterback</option>
+            <option value="RB">RB — Running Back</option>
+            <option value="WR">WR — Wide Receiver</option>
+            <option value="TE">TE — Tight End</option>
+            <option value="OL">OL — Offensive Lineman</option>
+            <option value="DE">DE — Defensive End</option>
+            <option value="DT">DT — Defensive Tackle</option>
+            <option value="LB">LB — Linebacker</option>
+            <option value="CB">CB — Cornerback</option>
+            <option value="S">S — Safety</option>
+          </select>
+        </div>
+        <p class="hint">Enter your combine numbers below. Leave any unknown stats blank.</p>
+        <div class="stats-grid">
+          <div class="form-group">
+            <label for="stat-forty">40-Yard Dash (s)</label>
+            <input type="number" id="stat-forty" min="0" step="0.01" placeholder="e.g. 4.45">
+          </div>
+          <div class="form-group">
+            <label for="stat-bench">Bench Press (reps)</label>
+            <input type="number" id="stat-bench" min="0" step="1" placeholder="e.g. 20">
+          </div>
+          <div class="form-group">
+            <label for="stat-vertical">Vertical Jump (in)</label>
+            <input type="number" id="stat-vertical" min="0" step="0.01" placeholder="e.g. 38.5">
+          </div>
+          <div class="form-group">
+            <label for="stat-broad">Broad Jump (in)</label>
+            <input type="number" id="stat-broad" min="0" step="1" placeholder="e.g. 125">
+          </div>
+          <div class="form-group">
+            <label for="stat-cone">3-Cone Drill (s)</label>
+            <input type="number" id="stat-cone" min="0" step="0.01" placeholder="e.g. 6.80">
+          </div>
+          <div class="form-group">
+            <label for="stat-shuttle">Shuttle (s)</label>
+            <input type="number" id="stat-shuttle" min="0" step="0.01" placeholder="e.g. 4.20">
+          </div>
+          <div class="form-group">
+            <label for="stat-height">Height (in)</label>
+            <input type="number" id="stat-height" min="0" step="1" placeholder="e.g. 73">
+          </div>
+          <div class="form-group">
+            <label for="stat-weight">Weight (lbs)</label>
+            <input type="number" id="stat-weight" min="0" step="1" placeholder="e.g. 200">
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" data-original-text="Grade My Athleticism">Grade My Athleticism</button>
+      </form>
+      <div id="result-create" class="result-container" style="display:none"></div>
+    </div>
+
+  </main>
+  <script src="/static/players.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
