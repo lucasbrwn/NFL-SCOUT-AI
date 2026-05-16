@@ -14,7 +14,7 @@ combine numbers to see how you'd stack up against real draft prospects.
 1. Clone the repo and navigate to it:
    ```
    git clone https://github.com/lucasbrwn/NFL-SCOUT-AI
-   cd nfl-scout-ai
+   cd NFL-SCOUT-AI
    ```
 
 2. Create and activate a virtual environment:
