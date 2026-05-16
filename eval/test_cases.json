@@ -1,0 +1,175 @@
+[
+  {
+    "id": "TC01",
+    "feature": "grade",
+    "description": "2026 WR — elite speed (4.35s) and elite bench (20 reps) against WR benchmarks",
+    "input": {
+      "name": "Zachariah Branch",
+      "position": "WR"
+    },
+    "expected": {
+      "grade_range": ["A-", "A"],
+      "position": "WR",
+      "data_warning": null
+    }
+  },
+  {
+    "id": "TC02",
+    "feature": "grade",
+    "description": "2023 RB — elite speed (4.32s), well below average RB time of 4.50s",
+    "input": {
+      "name": "Devon Achane",
+      "position": "RB"
+    },
+    "expected": {
+      "grade_range": ["A", "A+"],
+      "position": "RB",
+      "data_warning": null
+    }
+  },
+  {
+    "id": "TC03",
+    "feature": "grade",
+    "description": "2020 QB — very slow 40 (5.01s vs avg 4.72s), below-average vertical; tests low-end grading",
+    "input": {
+      "name": "Jake Fromm",
+      "position": "QB"
+    },
+    "expected": {
+      "grade_range": ["D", "C-", "C"],
+      "position": "QB",
+      "data_warning": null
+    }
+  },
+  {
+    "id": "TC04",
+    "feature": "grade",
+    "description": "2020 OL — 4.85s 40 is faster than OL elite threshold (4.95s); elite vertical (36.5\"); tests high-end OL grading",
+    "input": {
+      "name": "Tristan Wirfs",
+      "position": "OL"
+    },
+    "expected": {
+      "grade_range": ["A", "A+"],
+      "position": "OL",
+      "data_warning": null
+    }
+  },
+  {
+    "id": "TC05",
+    "feature": "grade",
+    "description": "Player not in dataset — must set data_warning and must NOT hallucinate stats",
+    "input": {
+      "name": "Chad Playersworth",
+      "position": "WR"
+    },
+    "expected": {
+      "grade_range": ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "F"],
+      "data_warning": "not_null"
+    }
+  },
+  {
+    "id": "TC06",
+    "feature": "compare",
+    "description": "Cross-year same-position: 2024 WR Worthy (4.21s, 41\" vert) vs 2025 WR Golden (4.29s) — Worthy wins on speed and complete data",
+    "input": {
+      "name1": "Xavier Worthy",
+      "name2": "Matthew Golden"
+    },
+    "expected": {
+      "verdict": "Xavier Worthy",
+      "same_position": true,
+      "player1_position": "WR",
+      "player2_position": "WR"
+    }
+  },
+  {
+    "id": "TC07",
+    "feature": "compare",
+    "description": "Cross-position 2026: WR Branch vs DE Bailey — must grade each against their own positional benchmarks, not compare across positions",
+    "input": {
+      "name1": "Zachariah Branch",
+      "name2": "David Bailey"
+    },
+    "expected": {
+      "same_position": false,
+      "player1_position": "WR",
+      "player2_position": "DE"
+    }
+  },
+  {
+    "id": "TC08",
+    "feature": "compare",
+    "description": "Cross-year same-position: 2021 WR Schwartz (4.27s) vs 2022 WR Thornton (4.28s, 36.5\" vert, 130\" broad) — Thornton edges on overall athleticism",
+    "input": {
+      "name1": "Anthony Schwartz",
+      "name2": "Tyquan Thornton"
+    },
+    "expected": {
+      "verdict_options": ["Tyquan Thornton", "Push"],
+      "same_position": true,
+      "player1_position": "WR",
+      "player2_position": "WR"
+    }
+  },
+  {
+    "id": "TC09",
+    "feature": "create",
+    "description": "Elite WR speed profile — 4.35s 40, 42\" vertical; should grade A or better",
+    "input": {
+      "position": "WR",
+      "forty_yard": 4.35,
+      "bench_reps": 12,
+      "vertical_jump": 42.0,
+      "weight_lbs": 195
+    },
+    "expected": {
+      "grade_range": ["A", "A+"],
+      "data_warning": null
+    }
+  },
+  {
+    "id": "TC10",
+    "feature": "create",
+    "description": "Strong OL profile — elite bench (35 reps vs avg 29.5), reasonable 40; must not be penalized for OL-normal 40 time",
+    "input": {
+      "position": "OL",
+      "forty_yard": 5.4,
+      "bench_reps": 35,
+      "vertical_jump": 28.0,
+      "weight_lbs": 325
+    },
+    "expected": {
+      "grade_range": ["B", "B+", "A-"],
+      "data_warning": null
+    }
+  },
+  {
+    "id": "TC11",
+    "feature": "create",
+    "description": "Average QB combine — 4.9s 40, 18 bench; must be graded against QB benchmarks, not WR or RB standards",
+    "input": {
+      "position": "QB",
+      "forty_yard": 4.9,
+      "bench_reps": 18,
+      "vertical_jump": 33.0,
+      "weight_lbs": 220
+    },
+    "expected": {
+      "grade_range": ["C", "C+", "B-"],
+      "data_warning": null
+    }
+  },
+  {
+    "id": "TC12",
+    "feature": "create",
+    "description": "All stats blank — must return data_warning without calling OpenAI",
+    "input": {
+      "position": "WR"
+    },
+    "expected": {
+      "grade": null,
+      "data_warning": "Please provide at least one combine stat."
+    }
+  }
+]
