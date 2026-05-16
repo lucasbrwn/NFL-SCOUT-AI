@@ -13,7 +13,7 @@ combine numbers to see how you'd stack up against real draft prospects.
 
 1. Clone the repo and navigate to it:
    ```
-   git clone <url>
+   git clone https://github.com/lucasbrwn/NFL-SCOUT-AI
    cd nfl-scout-ai
    ```
 
@@ -49,7 +49,7 @@ combine numbers to see how you'd stack up against real draft prospects.
 ## Running the Eval Suite
 
 ```
-python eval/eval.py
+python eval/eval_v3.py
 ```
 
 This runs 12 labeled test cases and prints accuracy. Costs ~$0.05–$0.10 in OpenAI API credits.
