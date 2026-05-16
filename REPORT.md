@@ -80,7 +80,7 @@ Tracing a user submitting "Zachariah Branch" and "WR" through the Player Grade f
 
 ## Part 4 — AI Disclosure & Safety
 
-All code in this project was written with Claude Code as the primary coding assistant.
+All code in this project was written with Claude Code as the primary coding assistant. Claude also helped draft the written content of this REPORT.md and proposed the modular directory structure (`data/`, `rag/`, `ai/`, `static/`, `eval/`) that organizes the project. I reviewed and edited both the report text and the module layout, and made corrections where Claude's output was wrong or incomplete.
 
 **Two specific failures and recoveries:**
 
