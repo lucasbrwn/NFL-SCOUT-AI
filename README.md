@@ -28,6 +28,8 @@ combine numbers to see how you'd stack up against real draft prospects.
    pip install -r requirements.txt
    ```
 
+> **Troubleshooting steps 2–3:** If these commands fail, make sure you are using **Python 3.11.9**. Other versions may not be compatible with all dependencies. You can download it at [python.org](https://www.python.org/downloads/release/python-3119/) or switch to it with `pyenv install 3.11.9 && pyenv local 3.11.9`.
+
 4. Copy the environment template and add your OpenAI key:
    ```bash
    cp .env.example .env
